@@ -47,16 +47,16 @@ def wait_and_click(image_path, description, confidence=0.85, max_wait=15, option
 print("\n🔄 Handling popups in order...")
 
 wait_and_click(POPUP_Askdisha_IMAGE, "Ask Disha popup close")
-time.sleep(0.5)
+time.sleep(2)
 
 wait_and_click(POPUP_OK_IMAGE, "Popup OK button")
-time.sleep(0.5)
+time.sleep(1)
 
 wait_and_click(POPUP_ALLOW_IMAGE, "Allow Notifications popup", optional=True)
 
 # --- CLICK LOGIN BUTTON ---
 if wait_and_click(LOGIN_BTN_IMAGE, "Top LOGIN button"):
-    time.sleep(2)  # wait for login box to load
+    time.sleep(0.5)  # wait for login box to load
 
     # --- ENTER USERNAME + PASSWORD (without needing USER_FIELD_IMAGE) ---
     pyautogui.typewrite(USERNAME, interval=0.1)
@@ -70,7 +70,7 @@ else:
 
 # --- WAIT FOR CAPTCHA (manual step) ---
 print("\n👉 Please enter the CAPTCHA manually in the browser...")
-time.sleep(15)  # give enough time for user to type captcha
+time.sleep(8)  # give enough time for user to type captcha
 
 # --- CLICK SIGN IN ---
 pyautogui.press('enter')
