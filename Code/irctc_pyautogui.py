@@ -6,13 +6,14 @@ import time
 IRCTC_URL = "https://www.irctc.co.in/nget/train-search"
 USERNAME = "ayyampudur"
 PASSWORD = "Agalya@253520"
+JOURNEY_DATE = "21/09/2025"
 
-# Screenshot images (make sure these are exact cropped screenshots!)
+# Screenshot images
 POPUP_Askdisha_IMAGE = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-Close.png"
 POPUP_OK_IMAGE       = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-OK.png"
 POPUP_ALLOW_IMAGE    = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-Allow.png"
 LOGIN_BTN_IMAGE      = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-login.png"
-# USER_FIELD_IMAGE     = r"C:\Users\nagal\OneDrive\Pictures\irctc\login_user_name.png"  # kept for reference, not used
+LOGIN_FROM_IMAGE     = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-from.png"
 
 # --- OPEN BROWSER ---
 print("🌐 Opening IRCTC website...")
@@ -45,20 +46,18 @@ def wait_and_click(image_path, description, confidence=0.85, max_wait=15, option
 
 # --- HANDLE POPUPS (strict order) ---
 print("\n🔄 Handling popups in order...")
-
+time.sleep(1)
 wait_and_click(POPUP_Askdisha_IMAGE, "Ask Disha popup close")
 time.sleep(2)
-
 wait_and_click(POPUP_OK_IMAGE, "Popup OK button")
 time.sleep(1)
-
 wait_and_click(POPUP_ALLOW_IMAGE, "Allow Notifications popup", optional=True)
 
 # --- CLICK LOGIN BUTTON ---
 if wait_and_click(LOGIN_BTN_IMAGE, "Top LOGIN button"):
     time.sleep(0.5)  # wait for login box to load
 
-    # --- ENTER USERNAME + PASSWORD (without needing USER_FIELD_IMAGE) ---
+    # --- ENTER USERNAME + PASSWORD ---
     pyautogui.typewrite(USERNAME, interval=0.1)
     pyautogui.press('tab')
     time.sleep(0.5)
@@ -74,4 +73,27 @@ time.sleep(8)  # give enough time for user to type captcha
 
 # --- CLICK SIGN IN ---
 pyautogui.press('enter')
-print("🎉 Automation completed successfully!")
+print("🎉 Logged in successfully!")
+
+# --- ENTER TRAVEL DETAILS ---
+if wait_and_click(LOGIN_FROM_IMAGE, "From Station field"):
+    # From station
+    pyautogui.typewrite("ED", interval=0.2)
+    time.sleep(1)
+    pyautogui.press('tab')
+
+    # To station
+    pyautogui.press('tab', presses=2, interval=0.2)
+    pyautogui.typewrite("MAS", interval=0.2)
+    time.sleep(1)
+    pyautogui.press('tab')
+
+    # Date
+    pyautogui.press('tab')
+    pyautogui.typewrite(JOURNEY_DATE, interval=0.2)
+    time.sleep(1)
+    # Submit
+    pyautogui.press('enter')
+    print("✅ Travel details entered & search triggered.")
+else:
+    print("⚠️ Could not find From Station field, skipping train search.")
