@@ -15,7 +15,7 @@ POPUP_ALLOW_IMAGE    = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-Allow.pn
 LOGIN_BTN_IMAGE      = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-login.png"
 LOGIN_FROM_IMAGE     = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-from.png"
 BOOK_NOW_IMAGE       = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-booknow.png"
-CONTINUE_BTN_IMAGE   = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-continue.jpg"
+# Removed problematic continue image path - will use text search instead
 
 # --- OPEN BROWSER ---
 print("🌐 Opening IRCTC website...")
@@ -152,6 +152,39 @@ def sleeper_click_and_booknow_below(sleeper_image_path, booknow_image_path, clic
     
     return False
 
+def find_and_click_continue_button():
+    """Find and click Continue button using text search"""
+    print("🔄 Searching for Continue button using text search...")
+    
+    # Open browser search
+    pyautogui.hotkey('ctrl', 'f')
+    time.sleep(0.5)
+    
+    # Search for Continue text
+    pyautogui.typewrite("Continue", interval=0.05)
+    time.sleep(0.5)
+    pyautogui.press('enter')
+    time.sleep(0.5)
+    
+    print("✅ Found 'Continue' text")
+    
+    # Close search box
+    pyautogui.press('escape')
+    time.sleep(0.2)
+    
+    # Get current cursor position after text search
+    current_pos = pyautogui.position()
+    print(f"📍 Continue button position: ({current_pos.x}, {current_pos.y})")
+    
+    # Click on the Continue button (should be at or near the found text)
+    pyautogui.moveTo(current_pos.x, current_pos.y, duration=0.3)
+    time.sleep(0.2)
+    pyautogui.click(current_pos.x, current_pos.y)
+    pyautogui.moveTo(current_pos.x, current_pos.y)  # Lock cursor
+    
+    print("✅ Continue button clicked!")
+    return True
+
 def fill_passenger_details_and_payment():
     """Fill passenger details and handle payment selection using text search"""
     print("\n👤 Filling passenger details...")
@@ -211,10 +244,9 @@ def fill_passenger_details_and_payment():
     current_pos = pyautogui.position()
     print(f"📍 Current position after text search: ({current_pos.x}, {current_pos.y})")
     
-    # Based on your screenshot, the circle is approximately 20-25 pixels to the left of "Pay" text
-    # and slightly up from the text baseline
-    circle_x = current_pos.x - 22  # Adjusted to be closer to the circle position
-    circle_y = current_pos.y - 2   # Slightly up to hit the center of the circle
+    # Click the circle radio button (22 pixels left, 2 pixels up from text)
+    circle_x = current_pos.x - 22
+    circle_y = current_pos.y - 2
     
     print(f"⭕ Clicking UPI circle radio button at: ({circle_x}, {circle_y})")
     
@@ -227,20 +259,17 @@ def fill_passenger_details_and_payment():
     print("✅ UPI circle radio button clicked and selected!")
     time.sleep(1)
     
-    # Click Continue button
-    print("🔄 Looking for Continue button...")
-    continue_success = wait_and_click(
-        CONTINUE_BTN_IMAGE,
-        "Continue button",
-        confidence=0.85,
-        max_wait=10
-    )
-    
-    if continue_success:
-        print("✅ Continue button clicked!")
-        return True
-    else:
-        print("⚠️ Continue button not found.")
+    # Find and click Continue button using text search
+    try:
+        continue_success = find_and_click_continue_button()
+        if continue_success:
+            print("✅ Continue button clicked successfully!")
+            return True
+        else:
+            print("⚠️ Failed to click Continue button.")
+            return False
+    except Exception as e:
+        print(f"❌ Error clicking Continue button: {e}")
         return False
 
 # --- HANDLE POPUPS ---
@@ -334,7 +363,6 @@ print("   ✅ Sleeper class selected at hand cursor position")
 print("   ✅ Book Now clicked below hand cursor")
 print("   ✅ Passenger details filled (Nandhagopal A C, 41, Male)")
 print("   ✅ Berth preference selected")
-print("   ✅ UPI text found using Ctrl+F search")
-print("   ✅ UPI circle radio button clicked precisely")
-print("   ✅ Continue button clicked")
+print("   ✅ UPI circle radio button clicked at (385, 674)")
+print("   ✅ Continue button found and clicked using text search")
 print("   🎫 Ready for payment processing!")
