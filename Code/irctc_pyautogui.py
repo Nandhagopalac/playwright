@@ -6,7 +6,7 @@ import time
 IRCTC_URL = "https://www.irctc.co.in/nget/train-search"
 USERNAME = "ayyampudur"
 PASSWORD = "Agalya@253520"
-JOURNEY_DATE = "21/09/2025"
+JOURNEY_DATE = "23/10/2025"
 
 # Screenshot images
 POPUP_Askdisha_IMAGE = r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-Close.png"
@@ -31,9 +31,11 @@ def wait_and_click(image_path, description, confidence=0.85, max_wait=15, option
             loc = None
 
         if loc:
-            pyautogui.moveTo(loc.x, loc.y + offset_y, duration=0.2)
+            target_x, target_y = loc.x, loc.y + offset_y
+            pyautogui.moveTo(target_x, target_y, duration=0.2)
             pyautogui.click()
-            print(f"✅ Clicked on {description} at {loc}")
+            pyautogui.moveTo(target_x, target_y)  # 👈 reset cursor to same spot
+            print(f"✅ Clicked on {description} at ({target_x}, {target_y})")
             return True
         time.sleep(0.5)
 
@@ -48,7 +50,9 @@ def wait_and_click(image_path, description, confidence=0.85, max_wait=15, option
 print("\n🔄 Handling popups in order...")
 time.sleep(1)
 wait_and_click(POPUP_Askdisha_IMAGE, "Ask Disha popup close")
-time.sleep(2)
+time.sleep(0.5)
+wait_and_click(POPUP_OK_IMAGE, "Popup OK button")
+time.sleep(0.5)
 wait_and_click(POPUP_OK_IMAGE, "Popup OK button")
 time.sleep(1)
 wait_and_click(POPUP_ALLOW_IMAGE, "Allow Notifications popup", optional=True)
@@ -95,5 +99,45 @@ if wait_and_click(LOGIN_FROM_IMAGE, "From Station field"):
     # Submit
     pyautogui.press('enter')
     print("✅ Travel details entered & search triggered.")
-else:
-    print("⚠️ Could not find From Station field, skipping train search.")
+    # --- EXTRA STEPS: Search Train & Click Sleeper ---
+    time.sleep(1)  # wait for results to load
+    pyautogui.hotkey('ctrl', 'f')  # open browser search
+    time.sleep(1)
+    pyautogui.typewrite("22650", interval=0.1)
+    pyautogui.press('enter')
+    print("🔍 Train 22650 searched.")
+
+        # Locate and click Sleeper (SL) AFTER first occurrence of train
+    # Locate and click Sleeper (SL) AFTER first occurrence of train
+# Locate and click Sleeper (SL) AFTER first occurrence of train
+# Locate and click Sleeper (SL) AFTER first occurrence of train
+time.sleep(2)
+try:
+    sleeper_locs = list(pyautogui.locateAllOnScreen(
+        r"C:\Users\nagal\OneDrive\Pictures\irctc\Capture-sleeper.png", 
+        confidence=0.85
+    ))
+    if sleeper_locs:
+        # pick the lowest one (largest y) → usually the one after 22650
+        sleeper_loc = max(sleeper_locs, key=lambda loc: loc.top)
+        center = pyautogui.center(sleeper_loc)
+
+        # --- First click ---
+        pyautogui.mouseDown(center.x, center.y)   # press but don’t release
+        time.sleep(0.05)
+        pyautogui.mouseUp(center.x, center.y)     # release at same spot
+        pyautogui.moveTo(center.x, center.y)      # lock cursor back
+
+        time.sleep(1)
+
+        # --- Second click ---
+        pyautogui.mouseDown(center.x, center.y)
+        time.sleep(0.05)
+        pyautogui.mouseUp(center.x, center.y)
+        pyautogui.moveTo(center.x, center.y)      # lock cursor back
+
+        print("✅ Sleeper (SL) clicked twice and cursor stayed fixed.")
+    else:
+        print("⚠️ Could not find Sleeper (SL) on screen.")
+except Exception as e:
+    print("⚠️ Error locating Sleeper:", e)
