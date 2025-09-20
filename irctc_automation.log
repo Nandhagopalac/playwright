@@ -1,0 +1,95 @@
+2025-09-20 06:43:53,017 - INFO - Searching for Ask Disha popup...
+2025-09-20 06:44:11,081 - INFO - Searching for OK button...
+2025-09-20 06:44:13,603 - INFO - Searching for Allow notifications...
+2025-09-20 06:44:19,475 - INFO - Searching for Login button...
+2025-09-20 06:44:22,498 - INFO - Typing text: ayyampudur
+2025-09-20 06:44:26,431 - INFO - Typing text: Agalya@253520
+2025-09-20 06:45:25,121 - INFO - Searching for Ask Disha popup...
+2025-09-20 06:45:30,583 - INFO - Searching for OK button...
+2025-09-20 06:45:31,900 - INFO - Searching for Allow notifications...
+2025-09-20 06:45:37,620 - INFO - Searching for Login button...
+2025-09-20 06:45:39,238 - INFO - Typing text: ayyampudur
+2025-09-20 06:45:41,080 - INFO - Typing text: Agalya@253520
+2025-09-20 06:45:50,949 - INFO - Searching for From station field...
+2025-09-20 06:45:52,637 - INFO - Typing text: ED
+2025-09-20 06:45:54,766 - INFO - Typing text: MAS
+2025-09-20 06:45:56,685 - INFO - Typing text: 23/10/2025
+2025-09-20 06:46:02,081 - INFO - Typing text: 22650
+2025-09-20 06:46:15,022 - INFO - Typing text: Nandhagopal A C
+2025-09-20 06:46:16,967 - INFO - Typing text: 41
+2025-09-20 06:50:25,737 - INFO - Searching for Ask Disha popup...
+2025-09-20 06:50:31,786 - INFO - Searching for OK button...
+2025-09-20 06:50:33,280 - INFO - Searching for Allow notifications...
+2025-09-20 06:50:39,076 - INFO - Searching for Login button...
+2025-09-20 06:50:40,528 - INFO - Typing text: ayyampudur
+2025-09-20 06:50:42,247 - INFO - Typing text: Agalya@253520
+2025-09-20 06:50:52,080 - INFO - Searching for From station field...
+2025-09-20 06:51:40,602 - INFO - Searching for Ask Disha popup...
+2025-09-20 06:51:45,765 - INFO - Searching for OK button...
+2025-09-20 06:51:47,012 - INFO - Searching for Allow notifications...
+2025-09-20 06:51:52,547 - INFO - Searching for Login button...
+2025-09-20 06:51:54,546 - INFO - Typing text: ayyampudur
+2025-09-20 06:51:56,287 - INFO - Typing text: Agalya@253520
+2025-09-20 06:52:06,052 - INFO - Searching for From station field...
+2025-09-20 06:52:07,491 - INFO - Typing text: ED
+2025-09-20 06:52:09,602 - INFO - Typing text: MAS
+2025-09-20 06:52:11,523 - INFO - Typing text: 23/10/2025
+2025-09-20 06:52:16,980 - INFO - Typing text: 22650
+2025-09-20 06:56:18,050 - INFO - Searching for Ask Disha popup...
+2025-09-20 06:56:23,182 - INFO - Searching for OK button...
+2025-09-20 06:56:24,667 - INFO - Searching for Allow notifications...
+2025-09-20 06:56:30,490 - INFO - Searching for Login button...
+2025-09-20 06:56:32,216 - INFO - Typing text: ayyampudur
+2025-09-20 06:56:34,172 - INFO - Typing text: Agalya@253520
+2025-09-20 06:56:44,036 - INFO - Searching for From station field...
+2025-09-20 06:56:48,185 - INFO - Typing text: ED
+2025-09-20 06:56:50,326 - INFO - Typing text: MAS
+2025-09-20 06:56:52,294 - INFO - Typing text: 23/10/2025
+2025-09-20 06:56:57,683 - INFO - Typing text: 22650
+2025-09-20 06:57:11,147 - INFO - Typing text: Nandhagopal A C
+2025-09-20 06:57:13,086 - INFO - Typing text: 41
+2025-09-20 06:57:17,076 - INFO - Typing text: Kiruthika R
+2025-09-20 06:57:18,601 - INFO - Typing text: 37
+2025-09-20 06:57:21,449 - INFO -      • Passenger 1: Nandhagopal A C, 41, M, middle berth
+2025-09-20 06:57:21,450 - INFO -      • Passenger 2: Kiruthika R, 37, F, middle berth
+2025-09-20 07:01:16,050 - INFO - Screen scaling detected - X: 1.0, Y: 1.0
+2025-09-20 07:01:16,050 - INFO - Screen size detected: Size(width=1366, height=768)
+2025-09-20 07:01:16,050 - INFO - Starting IRCTC automation with improved reliability...
+2025-09-20 07:01:28,400 - INFO - Found with confidence 0.8
+2025-09-20 07:01:28,601 - INFO - Moving to (1332, 325) -> adjusted (1332, 325)
+2025-09-20 07:01:29,647 - INFO - Final position: Point(x=1332, y=325)
+2025-09-20 07:01:30,434 - INFO - Found with confidence 0.8
+2025-09-20 07:01:30,448 - INFO - Moving to (680, 675) -> adjusted (680, 675)
+2025-09-20 07:01:31,409 - INFO - Final position: Point(x=680, y=675)
+2025-09-20 07:01:37,367 - INFO - Screenshot taken for debugging
+2025-09-20 07:01:37,527 - INFO - Found with confidence 0.8
+2025-09-20 07:01:37,537 - INFO - Moving to (259, 131) -> adjusted (259, 131)
+2025-09-20 07:01:38,539 - INFO - Final position: Point(x=259, y=131)
+2025-09-20 07:01:56,817 - INFO - Screenshot taken for debugging
+2025-09-20 07:02:51,334 - INFO - Screen scaling detected - X: 1.0, Y: 1.0
+2025-09-20 07:02:51,336 - INFO - Screen size detected: Size(width=1366, height=768)
+2025-09-20 07:02:51,337 - INFO - Starting IRCTC automation with improved reliability...
+2025-09-20 07:03:02,540 - INFO - Found with confidence 0.8
+2025-09-20 07:03:02,560 - INFO - Moving to (1332, 325) -> adjusted (1332, 325)
+2025-09-20 07:03:03,545 - INFO - Final position: Point(x=1332, y=325)
+2025-09-20 07:03:04,235 - INFO - Found with confidence 0.8
+2025-09-20 07:03:04,244 - INFO - Moving to (680, 675) -> adjusted (680, 675)
+2025-09-20 07:03:05,210 - INFO - Final position: Point(x=680, y=675)
+2025-09-20 07:03:10,950 - INFO - Screenshot taken for debugging
+2025-09-20 07:03:11,122 - INFO - Found with confidence 0.8
+2025-09-20 07:03:11,159 - INFO - Moving to (259, 131) -> adjusted (259, 131)
+2025-09-20 07:03:12,156 - INFO - Final position: Point(x=259, y=131)
+2025-09-20 07:03:30,400 - INFO - Screenshot taken for debugging
+2025-09-20 07:03:30,543 - INFO - Found with confidence 0.8
+2025-09-20 07:03:30,552 - INFO - Moving to (263, 419) -> adjusted (263, 419)
+2025-09-20 07:03:31,527 - INFO - Final position: Point(x=263, y=419)
+2025-09-20 07:03:52,456 - INFO - Found 2 sleeper options with confidence 0.8
+2025-09-20 07:03:52,492 - INFO - Moving to (444, 530) -> adjusted (444, 530)
+2025-09-20 07:03:53,506 - INFO - Final position: Point(x=444, y=530)
+2025-09-20 07:03:54,561 - INFO - Moving to (444, 535) -> adjusted (444, 535)
+2025-09-20 07:03:55,521 - INFO - Final position: Point(x=444, y=535)
+2025-09-20 07:03:58,561 - INFO - Searching in region 1...
+2025-09-20 07:03:58,910 - INFO - Moving to (407, 683) -> adjusted (407, 683)
+2025-09-20 07:03:59,887 - INFO - Final position: Point(x=407, y=683)
+2025-09-20 07:04:25,365 - INFO -      • Passenger 1: Nandhagopal A C, Age 41, M, middle berth
+2025-09-20 07:04:25,366 - INFO -      • Passenger 2: Kiruthika R, Age 37, F, middle berth
